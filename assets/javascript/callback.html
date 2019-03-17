@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Callback Page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="dummyobjects.js"></script>
+
+    <script>
+        let getAccessToken = function (field, url) {
+
+            let reg = new RegExp('[#?&]' + field + '=([^&#]*)', 'i');
+            let string = reg.exec(url);
+            return string ? string[1] : null;
+        };
+
+
+
+        let dummyUrl = "https://cplank.github.io/Today-s-Play/callback#access_token=BQCYR6zw_500hPgyevDOPahwrS4yVBna3TRwiOZ6no3htMhKhFUp_q61ZMmn5L-eiO-0smTUU_QVcMwBJAaLXdblIf1FCiZ-wb_AbBJXmqfqi48KB4KTLyX9FMnWDk5cH8_8vA8ghwDhFawRHl1YC79asfYP97RZhHQYiIcp7AyNkbXJl86ZsA&token_type=Bearer&expires_in=3600&state=123"
+
+
+        let accessToken = getAccessToken('access_token', dummyUrl);
+
+        let queryUrl = "https://api.spotify.com/v1/me"
+
+        $.ajax({
+            url: queryUrl,
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+            success: function (response) {
+                console.log(JSON.stringify(response));
+            }
+        })
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
