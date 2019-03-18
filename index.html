@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="jumbotron" style="padding-top: 260px; padding-bottom: 260px;">
+        <h4 class="text-center" id="todays-date">Today's date is MM/DD/YYYY</h4>
+        <br>
+        <h1 class="text-center">Where are you listening?</h1>
+        <br>
+
+        <div class="row">
+            <div class="col-lg-4">
+            </div>
+
+            <div class="col-lg-4">
+                <form class="form-inline">
+                    <label class="sr-only" for="inlineFormInputName2">Name</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="user-input" placeholder="Ex: Seattle">
+
+                    <button type="button" class="btn btn-primary mb-2" id="enter-button">Enter</button>
+                </form>
+            </div>
+
+            <div class="col-lg-4">
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container hidden" id="widgets">
+        <div class="row">
+            <div class="col-lg-6" id="tickermaster-api">
+                <div w-type="event-discovery" w-tmapikey="HuptMNvrDLaDMhz8Y5NOpg5s7hvSDucs"
+                    w-googleapikey="AIzaSyAt-7vjGZ8A-EuZhf1F_AJCUkGU3Zsky_o" w-keyword="" w-theme="listviewthumbnails"
+                    w-colorscheme="dark" w-width="350" w-height="600" w-size="25" w-border="2" w-borderradius="4"
+                    w-radius="25" w-period="custom" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid=""
+                    w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName"
+                    w-id="id_lo5e3" w-source="" w-latlong="34.0390107,-118.2672801"></div>
+            </div>
+
+            <div class="col-lg-6" id="spotify-api">
+                <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="350" height="600"
+                    frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script
+        src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/event-discovery/1.0.0/lib/main-widget.js"></script>
+    <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>
+
+
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script> -->
