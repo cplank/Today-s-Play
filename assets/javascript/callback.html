@@ -33,31 +33,45 @@
             return string ? string[1] : null;
         };
 
+        let url = window.location.href
 
 
-        let dummyUrl = "https://cplank.github.io/Today-s-Play/callback#access_token=BQCYR6zw_500hPgyevDOPahwrS4yVBna3TRwiOZ6no3htMhKhFUp_q61ZMmn5L-eiO-0smTUU_QVcMwBJAaLXdblIf1FCiZ-wb_AbBJXmqfqi48KB4KTLyX9FMnWDk5cH8_8vA8ghwDhFawRHl1YC79asfYP97RZhHQYiIcp7AyNkbXJl86ZsA&token_type=Bearer&expires_in=3600&state=123"
+        let accessToken = getAccessToken('access_token', url);
+
+        // function doSomethingWithArtistId(response) {
+        // what do we do with the artist ID?
 
 
-        let accessToken = getAccessToken('access_token', dummyUrl);
-        function doSomethingWithArtistId(response) {
-            // what do we do with the artist ID?
-
-        }
+        // }
         function getArtistId() {
 
             let queryUrl = "https://api.spotify.com/v1/search?q=name:muse&type=artist"//eventually need to put in the artist name from ticketmaster
 
             $.ajax({
                 url: queryUrl,
+                method: "GET",
                 headers: {
                     'Authorization': 'Bearer ' + accessToken
                 },
-                success: doSomethingWithArtistId
-            });
+                // success: doSomethingWithArtistId
+
+            }).then(function (dummyArtistObj) {
+                console.log(dummyArtistObj)
+                for (let i = 0; i < dummyArtistObj.length; i++) {
+                    let dummyArtistId = dummyArtistObj[i].id;
+                    console.log(dummyArtistId)
+                }
+            }).then(function (response)
         }
 
+
         // testing with dummy data:
-        doSomethingWithArtistId(dummyArtist);
+        // doSomethingWithArtistId(dummyArtist);
+
+        // function doSomethingWithArtistId(response) {
+        //     //Use the artist id to get top tracks
+
+        // }
 
     </script>
 

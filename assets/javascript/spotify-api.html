@@ -18,6 +18,15 @@
     <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="300" height="380" frameborder="0"
         allowtransparency="true" allow="encrypted-media"></iframe>
 
+    <div w-type="event-discovery" w-tmapikey="HuptMNvrDLaDMhz8Y5NOpg5s7hvSDucs"
+        w-googleapikey="AIzaSyAt-7vjGZ8A-EuZhf1F_AJCUkGU3Zsky_o" w-keyword="" w-theme="listviewthumbnails"
+        w-colorscheme="dark" w-width="350" w-height="600" w-size="25" w-border="2" w-borderradius="4" w-radius="25"
+        w-period="day" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid=""
+        w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_lo5e3" w-source=""
+        w-countrycode="US" w-postalcode="" w-city="Seattle" w-latlong=""></div>
+
+
+
 
 
 
@@ -38,11 +47,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script
+        src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/event-discovery/1.0.0/lib/main-widget.js"></script>
 
     <script>
 
         let clientId = "db62643fda74460eb21d4ea74fddb8ce";
-        let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2Fcallback"
+        let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2F";
+        // let redirectUri = "https://localhost:5500/callback";
 
         $(".btn").on("click", function () {
             window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user-read-private%20user-read-email&response_type=token&state=123`
