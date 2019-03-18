@@ -39,20 +39,25 @@
 
 
         let accessToken = getAccessToken('access_token', dummyUrl);
+        function doSomethingWithArtistId(response) {
+            // what do we do with the artist ID?
 
-        let queryUrl = "https://api.spotify.com/v1/me"
+        }
+        function getArtistId() {
 
-        $.ajax({
-            url: queryUrl,
-            headers: {
-                'Authorization': 'Bearer ' + accessToken
-            },
-            success: function (response) {
-                console.log(JSON.stringify(response));
-            }
-        })
+            let queryUrl = "https://api.spotify.com/v1/search?q=name:muse&type=artist"//eventually need to put in the artist name from ticketmaster
 
+            $.ajax({
+                url: queryUrl,
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken
+                },
+                success: doSomethingWithArtistId
+            });
+        }
 
+        // testing with dummy data:
+        doSomethingWithArtistId(dummyArtist);
 
     </script>
 
