@@ -33,19 +33,42 @@
             return string ? string[1] : null;
         };
 
-        let url = window.location.href
+        let url = window.location.href;
 
 
         let accessToken = getAccessToken('access_token', url);
+
+        let allArtistTopTracks = [];
 
         // function doSomethingWithArtistId(response) {
         // what do we do with the artist ID?
 
 
         // }
-        function getArtistId() {
+        // // artistNames = ['bob','joe','rush']
+        // function waitForAllArtistsAllTracks(artistNames){
+        //     let promises = []
+        //     for(let i = 0;i < artistNames.length;i++){
+        //         promises.push(getTracksPromiseForArtist(artistNames[i]));
+        //     }
+        //     Promise.all(promises).then(function(artistsTopTracksObj){
+        //         //every element of tracks will be ONE response to the top-tracks api endpoint
+        //         for(let artistIndex = 0; artistIndex < artistsTopTracksObj.length;artistIndex++){
+        //             for(let i = 0;i < artistsTopTracksObj[artistIndex].tracks.length;i++){
+        //                 let track = artistsTopTracksObj[artistIndex].tracks[i];
+        //                 let trackId = track.id;
+        //             }
+        //         }
+        //     });
+        // }
+        function makePlaylist() {
 
-            let queryUrl = "https://api.spotify.com/v1/search?q=name:muse&type=artist"//eventually need to put in the artist name from ticketmaster
+        }
+
+
+        function getArtistTopTracks(artistName) {
+
+            let queryUrl = `https://api.spotify.com/v1/search?q=name:${artistName}&type=artist`//eventually need to put in the artist name from ticketmaster
 
             $.ajax({
                 url: queryUrl,
@@ -53,15 +76,35 @@
                 headers: {
                     'Authorization': 'Bearer ' + accessToken
                 },
-                // success: doSomethingWithArtistId
+            }).then(function (response) {
+                let artistObj = response
+                let artistId = artistObj[0].id;
+                // for (let i = 0; i < artistObj.length; i++) {
+                //     let artistId = artistObj[i].id;
+                //     console.log(artistId)
+                // }
+                // }).then(function (response) {
+                //doSomethingWithArtistId
+                let queryUrl = `https://api.spotify.com/v1/artists/${artistId}/top-tracks`
+                $.ajax({
+                    url: queryUrl,
+                    method: "GET",
+                    headers: {
+                        'Authorization': 'Bearer ' + accessToken
+                    },
+                }).then(function (response) {
+                    let topTracksObj = response.tracks
+                    for (let i = 0; i < Math.min(3, topTracksObj.length); i++) {
+                        let topTracks = topTracksObj[i].id
+                        console.log(topTracksId)
+                        // push the id to a global list?
+                        allArtistTopTracks.push(topTracksId)
 
-            }).then(function (dummyArtistObj) {
-                console.log(dummyArtistObj)
-                for (let i = 0; i < dummyArtistObj.length; i++) {
-                    let dummyArtistId = dummyArtistObj[i].id;
-                    console.log(dummyArtistId)
-                }
-            }).then(function (response)
+                    }
+                });
+
+
+            });
         }
 
 
