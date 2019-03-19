@@ -53,11 +53,11 @@
     <script>
 
         let clientId = "db62643fda74460eb21d4ea74fddb8ce";
-        let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2F";
-        // let redirectUri = "https://localhost:5500/callback";
+        let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2Fcallback%2F";
+
 
         $(".btn").on("click", function () {
-            window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user-read-private%20user-read-email&response_type=token&state=123`
+            window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=playlist-modify-public%20user-read-private%20user-read-email&response_type=token&state=123`
         })
 
 

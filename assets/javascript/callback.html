@@ -32,13 +32,13 @@
             let string = reg.exec(url);
             return string ? string[1] : null;
         };
-
-        let url = window.location.href;
+        let dummycrap = "#access_token=BQCPZm5UMZ1wYF_SzI-JI0fPAAkDeinwkMHCGKrRjAuvfL2ZsGd9CIXG2PECfntI7ftcFBDE98Fd708H7SZbd05JausRPopX_GQFBMzbuT_BfK58_eHKCVmZWPPUsv2JcaRPQZfkphm8UVh6_gsOIJbGx0Zq-hwBz_0j9u2Xulm8qM_6H1irnvbn_Fsmf8V-pt1fD7FlICqRI2qGkAk&token_type=Bearer&expires_in=3600&state=123";
+        let url = window.location.href + dummycrap;
 
 
         let accessToken = getAccessToken('access_token', url);
 
-        let allArtistTopTracks = [];
+
 
         // function doSomethingWithArtistId(response) {
         // what do we do with the artist ID?
@@ -61,14 +61,43 @@
         //         }
         //     });
         // }
-        function makePlaylist() {
+        function makePlaylist(artistName) {
+            let queryUrl = "https://api.spotify.com/v1/me"
 
+            $.ajax({
+                url: queryUrl,
+                method: "GET",
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken
+                },
+            }).then(function (response) {
+                let userObj = response
+                let userId = userObj.id
+
+                let queryUrl = `https://api.spotify.com/v1/users/${userId}/playlists`
+
+                $.ajax({
+                    url: queryUrl,
+                    method: "POST",
+                    data: JSON.stringify({ "name": "Todays Music" }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    headers: {
+                        'Authorization': 'Bearer ' + accessToken,
+                    },
+                }).then(function (response) {
+                    let newPlayListObj = response
+                    let newPlayListId = response.id
+
+                    getArtistTopTracks(artistName, newPlayListId)
+                })
+
+            })
         }
 
+        function getArtistTopTracks(artistName, playlistId) {
 
-        function getArtistTopTracks(artistName) {
-
-            let queryUrl = `https://api.spotify.com/v1/search?q=name:${artistName}&type=artist`//eventually need to put in the artist name from ticketmaster
+            let queryUrl = `https://api.spotify.com/v1/search?q=${artistName}&type=artist`//eventually need to put in the artist name from ticketmaster
 
             $.ajax({
                 url: queryUrl,
@@ -78,13 +107,8 @@
                 },
             }).then(function (response) {
                 let artistObj = response
-                let artistId = artistObj[0].id;
-                // for (let i = 0; i < artistObj.length; i++) {
-                //     let artistId = artistObj[i].id;
-                //     console.log(artistId)
-                // }
-                // }).then(function (response) {
-                //doSomethingWithArtistId
+                let artistId = artistObj.artists.items[0].id;
+
                 let queryUrl = `https://api.spotify.com/v1/artists/${artistId}/top-tracks`
                 $.ajax({
                     url: queryUrl,
@@ -95,17 +119,34 @@
                 }).then(function (response) {
                     let topTracksObj = response.tracks
                     for (let i = 0; i < Math.min(3, topTracksObj.length); i++) {
-                        let topTracks = topTracksObj[i].id
-                        console.log(topTracksId)
+                        let topTracksUri = topTracksObj[i].uri
+                        let allTheUris = [];
+                        console.log(topTracksUri)
                         // push the id to a global list?
-                        allArtistTopTracks.push(topTracksId)
+                        allTheUris.push(topTracksUri)
 
                     }
+                    addTracksToPlaylist(allTheUris, playlistId);
                 });
 
 
             });
         }
+
+        function addTracksToPlaylist(arr, playListId) {
+            let queryUrl = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`
+
+            $.ajax({
+                url: queryUrl,
+                method: "POST",
+                data: { "uris": arr },
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken,
+                    "Content-Type": "application/json"
+                },
+            })
+        }
+
 
 
         // testing with dummy data:
@@ -115,6 +156,8 @@
         //     //Use the artist id to get top tracks
 
         // }
+
+        makePlaylist("Jenny%20Lewis");
 
     </script>
 
