@@ -3,7 +3,7 @@
         // Array of Artists 
         var TMEvents = [];
 
-        jQuery(document).ready(function () {
+        // jQuery(document).ready(function () {
             ////////////////////////////////////////////////////////////////////////////////////////////
             // IMPORTANT!!! set "var debug = true" when debugging, else set it to false           //////
             ////////////////////////////////////////////////////////////////////////////////////////////
@@ -166,5 +166,5 @@
                 //TODO: moment.js is available to grab todays date if not passed in...
                 renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents);
             };
-        });
+        // });
 

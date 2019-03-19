@@ -8,10 +8,10 @@ $("#todays-date").text(currentDate); // this changes the DOM's current date
 
 
 // Call to Rob's TM API js
-function renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents) {
-    console.log(startDate);
-    console.log(city);
-};
+// function renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents) {
+//     console.log(startDate);
+//     console.log(city);
+// };
 
 
 // Call to Carrie's Spotify API js
@@ -31,7 +31,7 @@ function userAction(event) {
         scrollTop: $("#widgets").offset().top
     }, 'slow');
     let tmParams = formattedCurrentDate + " " + userCity;
-    renderTMEvents(formattedCurrentDate, "", "", "", userCity, "", "", "", "", "");
+    renderTMEvents(formattedCurrentDate, "", formattedCurrentDate, "", userCity, "", "", "", "", "");
     $("#todays-date").val("");
     window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user-read-private%20user-read-email&response_type=token&state=123`;
 };
