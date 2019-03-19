@@ -32,35 +32,13 @@
             let string = reg.exec(url);
             return string ? string[1] : null;
         };
-        let dummycrap = "#access_token=BQCPZm5UMZ1wYF_SzI-JI0fPAAkDeinwkMHCGKrRjAuvfL2ZsGd9CIXG2PECfntI7ftcFBDE98Fd708H7SZbd05JausRPopX_GQFBMzbuT_BfK58_eHKCVmZWPPUsv2JcaRPQZfkphm8UVh6_gsOIJbGx0Zq-hwBz_0j9u2Xulm8qM_6H1irnvbn_Fsmf8V-pt1fD7FlICqRI2qGkAk&token_type=Bearer&expires_in=3600&state=123";
+        let dummycrap = "#access_token=BQDHo5ojwaAbUCtHScMt4-QHXH3qapam5D51nq6ze7yhekt6hIREvOsRyuMXsFz45ZS18YRxkgt0rhkF2mfKYdD-ai1NCDruNpQ9soIf9STPBNcsFlzSoXKH-AppQzrRi1_MlXDqTHCN6-8ifewjdEpLzHmwDq3oYlzx5_AdYuzGMsO0JYCm0UYPEH-igqyQ6e3eEddcUc8d-6-NfeA&token_type=Bearer&expires_in=3600&state=123";
         let url = window.location.href + dummycrap;
+        let newPlayListId = "";
 
 
         let accessToken = getAccessToken('access_token', url);
 
-
-
-        // function doSomethingWithArtistId(response) {
-        // what do we do with the artist ID?
-
-
-        // }
-        // // artistNames = ['bob','joe','rush']
-        // function waitForAllArtistsAllTracks(artistNames){
-        //     let promises = []
-        //     for(let i = 0;i < artistNames.length;i++){
-        //         promises.push(getTracksPromiseForArtist(artistNames[i]));
-        //     }
-        //     Promise.all(promises).then(function(artistsTopTracksObj){
-        //         //every element of tracks will be ONE response to the top-tracks api endpoint
-        //         for(let artistIndex = 0; artistIndex < artistsTopTracksObj.length;artistIndex++){
-        //             for(let i = 0;i < artistsTopTracksObj[artistIndex].tracks.length;i++){
-        //                 let track = artistsTopTracksObj[artistIndex].tracks[i];
-        //                 let trackId = track.id;
-        //             }
-        //         }
-        //     });
-        // }
         function makePlaylist(artistName) {
             let queryUrl = "https://api.spotify.com/v1/me"
 
@@ -87,7 +65,7 @@
                     },
                 }).then(function (response) {
                     let newPlayListObj = response
-                    let newPlayListId = response.id
+                    newPlayListId = response.id
 
                     getArtistTopTracks(artistName, newPlayListId)
                 })
@@ -95,9 +73,25 @@
             })
         }
 
+        function addTracksToPlaylist(arr, playlistId) {
+            let queryUrl = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`
+
+            $.ajax({
+                url: queryUrl,
+                method: "POST",
+                data: JSON.stringify({ "uris": arr }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken,
+
+                },
+            })
+        }
+
         function getArtistTopTracks(artistName, playlistId) {
 
-            let queryUrl = `https://api.spotify.com/v1/search?q=${artistName}&type=artist`//eventually need to put in the artist name from ticketmaster
+            let queryUrl = `https://api.spotify.com/v1/search?q=${artistName}&type=artist`
 
             $.ajax({
                 url: queryUrl,
@@ -109,7 +103,7 @@
                 let artistObj = response
                 let artistId = artistObj.artists.items[0].id;
 
-                let queryUrl = `https://api.spotify.com/v1/artists/${artistId}/top-tracks`
+                let queryUrl = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?country=US`
                 $.ajax({
                     url: queryUrl,
                     method: "GET",
@@ -118,44 +112,23 @@
                     },
                 }).then(function (response) {
                     let topTracksObj = response.tracks
+                    let allTheUris = [];
+
                     for (let i = 0; i < Math.min(3, topTracksObj.length); i++) {
                         let topTracksUri = topTracksObj[i].uri
-                        let allTheUris = [];
-                        console.log(topTracksUri)
+
                         // push the id to a global list?
                         allTheUris.push(topTracksUri)
-
+                        console.log(topTracksUri);
                     }
-                    addTracksToPlaylist(allTheUris, playlistId);
+                    addTracksToPlaylist(allTheUris, newPlayListId);
                 });
 
 
             });
         }
 
-        function addTracksToPlaylist(arr, playListId) {
-            let queryUrl = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`
 
-            $.ajax({
-                url: queryUrl,
-                method: "POST",
-                data: { "uris": arr },
-                headers: {
-                    'Authorization': 'Bearer ' + accessToken,
-                    "Content-Type": "application/json"
-                },
-            })
-        }
-
-
-
-        // testing with dummy data:
-        // doSomethingWithArtistId(dummyArtist);
-
-        // function doSomethingWithArtistId(response) {
-        //     //Use the artist id to get top tracks
-
-        // }
 
         makePlaylist("Jenny%20Lewis");
 
