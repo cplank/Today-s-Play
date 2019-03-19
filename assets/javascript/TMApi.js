@@ -92,11 +92,11 @@
                 //var endDateTime = "&localStartEndDateTime=" + endDate + "T" + endTime + "Z";
 
                 // always looking for music events for this app.
-                var classificationName = "&classificationName=KZFzniwnSyZfZ7v7nJ";
+                var classificationId = "&classificationId=KZFzniwnSyZfZ7v7nJ";
 
                 //URL into TM API'
                 var url = "https://app.ticketmaster.com/discovery/v2/events.json?size=" + maxEvents + "&apikey=uFdFU8rGqFvKCkO5Jurt2VUNq9H1Wcsx";
-                var queryString = url + localStartDateTime + classificationName + countryCode;
+                var queryString = url + localStartDateTime + classificationId + countryCode;
 
                 // construct the appropriate parameters needed for TM
                 if (city) {
