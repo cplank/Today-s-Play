@@ -1,0 +1,20 @@
+#widgets {
+    /* background-color: red; */
+}
+
+.container {
+    /* background-color: blue; */
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+/* .custom-nav {
+    background-color: transparent;
+} */
