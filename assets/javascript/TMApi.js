@@ -4,11 +4,10 @@
         var TMEvents = [];
 
         jQuery(document).ready(function () {
-
             ////////////////////////////////////////////////////////////////////////////////////////////
             // IMPORTANT!!! set "var debug = true" when debugging, else set it to false           //////
             ////////////////////////////////////////////////////////////////////////////////////////////
-            var debug = true;
+            var debug = false;
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////
             //  createEvents(param events) - parses the Ticket Master response into an array of TMArtistObjects    //
@@ -56,22 +55,6 @@
                     TMEvents[i].venueState = events._embedded.events[i]._embedded.venues[0].state.stateCode;
                     TMEvents[i].venueZipCode = events._embedded.events[i]._embedded.venues[0].postalCode;
                     TMEvents[i].genre = events._embedded.events[i].classifications[0].genre.name;
-
-                    // var newArtist = TMArtistObject;
-
-                    // newArtist.artistName = events._embedded.events[i].name;
-                    // newArtist.spanMultipleDays = events._embedded.events[i].dates.spanMultipleDays;
-                    // newArtist.eventDate = events._embedded.events[i].dates.start.localDate;
-                    // newArtist.eventTime = events._embedded.events[i].dates.start.localTime;
-                    // newArtist.onSaleStatus = events._embedded.events[i].dates.status.code;
-                    // newArtist.eventID = events._embedded.events[i].id;
-                    // newArtist.venueName = events._embedded.events[i]._embedded.venues[0].name;
-                    // newArtist.venueStreetAddress1 = events._embedded.events[i]._embedded.venues[0].address.line1;
-                    // newArtist.venueCity = events._embedded.events[i]._embedded.venues[0].city;
-                    // newArtist.venueState = events._embedded.events[i]._embedded.venues[0].state.stateCode;
-                    // newArtist.venueZipCode = events._embedded.events[i]._embedded.venues[0].postalCode;
-                    // newArtist.genre = events._embedded.events[i].classifications[0].genre.name;
-                    // TMEvents.push(newArtist);
                 }
             }
 
@@ -109,7 +92,7 @@
                 //var endDateTime = "&localStartEndDateTime=" + endDate + "T" + endTime + "Z";
 
                 // always looking for music events for this app.
-                var classificationName = "&classificationName=music";
+                var classificationName = "&classificationName=KZFzniwnSyZfZ7v7nJ";
 
                 //URL into TM API'
                 var url = "https://app.ticketmaster.com/discovery/v2/events.json?size=" + maxEvents + "&apikey=uFdFU8rGqFvKCkO5Jurt2VUNq9H1Wcsx";
