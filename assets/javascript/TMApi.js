@@ -130,6 +130,7 @@
                             console.log(response);
                             createEvents(response);
                         }
+                        createEvents(response);
                     },
                     error: function (xhr, status, err) {
                         // This time, we do not end up here!
