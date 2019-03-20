@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Today's Play</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Overpass:100,300,600" rel="stylesheet">
+</head>
+
+
+
+
+<body>
+    <span id="top"></span>
+
+    <ul class="nav" id="custom-nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="#widgets">Today's Play</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="about-button" href="#">About</a>
+    </ul>
+
+    <div class="jumbotron cstmJumbo">
+        <div id="intro">
+            <h4 class="text-center">Today is <span id="todays-date"></span></h4>
+            <h5 class="text-center">Discover new music in your area! (this is the callbackpage)</h5>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+    
+        <h1 class="text-center">Where are you listening?</h1>
+        <br>
+
+        <div class="container">
+            <div id="form-container">
+                <form class="form-inline">
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="user-input" placeholder="Ex: Seattle">
+
+                    <div class="sim-button button14" id="enter-button"><span>Enter</span></div>
+
+                </form>
+            </div>
+
+            <!-- <div id="app-disclosure">
+                <small class="form-text" id="disclosure">*You will be prompted to login to Spotify to use this
+                    app!</small>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- <div class="row">
+            <div class="col-lg-4">
+            </div>
+
+            <div class="col-lg-4">
+                <form class="form-inline cstmForm">
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="user-input" placeholder="Ex: Seattle">
+
+                    <button type="button" class="btn btn-primary mb-2" id="enter-button">Enter</button>
+                </form>
+            </div>
+
+            <div class="col-lg-4">
+            </div>
+        </div>
+    </div> -->
+
+    <br>
+
+
+    <div class="container-fluid" id="widgets">
+        <div class="container">
+            <!-- <div class="widget-title">
+                Who's in town
+            </div>
+
+            <div class="widget-title">
+                Playlist for Today
+            </div> -->
+
+            <div class="row">
+
+                <div class="col-lg-6" id="tickermaster-api">
+                    <div w-type="event-discovery" w-tmapikey="HuptMNvrDLaDMhz8Y5NOpg5s7hvSDucs"
+                        w-googleapikey="AIzaSyAt-7vjGZ8A-EuZhf1F_AJCUkGU3Zsky_o" w-keyword=""
+                        w-theme="listviewthumbnails" w-colorscheme="dark" w-width="350" w-height="500" w-size="25"
+                        w-border="2" w-borderradius="4" w-radius="25" w-period="custom" w-layout="vertical"
+                        w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid=""
+                        w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_lo5e3" w-source=""
+                        w-latlong="34.0390107,-118.2672801"></div>
+                </div>
+
+                <div class="col-lg-6" id="spotify-api">
+
+                    <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="350" height="500"
+                        frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container-fluid" id="about-container">
+
+        <div class="container" id="about-info">
+            <h1 class="text-center">
+                What is Today's Play?
+            </h1>
+            <p>Today's Play is a playlist based off of who's playing today! All you need to do is tell us where you're
+                at, or where you want to be, and we'll do the rest! Discover new music playing today in your area and
+                get a feel for your local music scene.</p>
+        </div>
+
+    </div>
+
+    <a href="#top" id="back-to-top" class="back-to-top" style="display: inline;">Top</a>
+
+
+
+
+    <script>
+
+    </script>
+
+    <!----------------------------------------- JAVASCRIPTS ----------------------------------------->
+
+    <!-- jQuery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!-- TM Widget JS -->
+    <script
+        src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/event-discovery/1.0.0/lib/main-widget.js"></script>
+
+    <!-- Moment JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+    <!-- TM API JS -->
+    <script src="assets/javascript/TMApi.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/javascript/app.js"></script>
+
+
+</body>
+
+</html>

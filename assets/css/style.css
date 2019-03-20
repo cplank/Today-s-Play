@@ -1,20 +1,266 @@
-#widgets {
-    /* background-color: red; */
+body { /* whole body is green gradient */
+    font-family: 'Overpass', sans-serif;
+    width: 100%;
+    height: 100vh;
+    
+    background: linear-gradient(314deg, #6beb8a, #2e9581);
+    background-size: 400% 400%;
+    
+    -webkit-animation: AnimationName 10s ease infinite;
+    -moz-animation: AnimationName 10s ease infinite;
+    -o-animation: AnimationName 10s ease infinite;
+    animation: AnimationName 10s ease infinite;
+}
+    
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @-o-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @keyframes AnimationName { 
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+
+.widget-title {
+    background-color: blue;
 }
 
-.container {
+#custom-nav {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+a {
+    color: white;
+    font-weight: 200;
+}
+
+
+h1 {
+    color: white;
+}
+
+h4, h5 {
+    color: white;
+    font-weight: 100;
+}
+
+p {
+    color: white;
+    font-weight: 200;
+}
+
+.cstmJumbo {
+    background-color: transparent;
+    height: 100vh;
+}
+
+#form-container {
+    display: flex;
+    justify-content: center;
+    /* background-color: green; */
+}
+
+#user-input {
+    /* background-color: red; */
+    width: 300px;
+    margin-left: 0.5rem;
+}
+
+
+/* Enter button fx */
+.button14 {
+	color: rgba(255,255,255,1);
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.button14 a{
+	color: rgba(51,51,51,1);
+	text-decoration: none;
+	display: block;
+}
+.button14::before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-color: rgba(255,255,255,0.25);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+
+}
+.button14:hover::before{
+	opacity: 0 ;
+	-webkit-transform: scale(0.5,0.5);
+	transform: scale(0.5,0.5);
+}
+.button14::after{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+	border: 1px solid rgba(255,255,255,0.5);
+	-webkit-transform: scale(1.2,1.2);
+	transform: scale(1.2,1.2);
+}
+.button14:hover::after{
+	opacity: 1;
+	-webkit-transform: scale(1,1);
+	transform: scale(1,1);
+}
+
+#app-disclosure {
+    display: flex;
+    justify-content: center;
+}
+
+#disclosure {
+    color: white;
+}
+
+#intro {
     /* background-color: blue; */
-    padding-top: 80px;
-    padding-bottom: 80px;
 }
 
 .hidden {
     display: none;
 }
 
+#widgets {
+    background-color: rgba(255, 255, 255, 0.45);
+    padding-top: 50px;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+}
+
+#tickermaster-api {
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+#spotify-api {
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+#login-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#about-container { /* background is blue gradient */
+    /* background-color: white; */
+    padding-top: 100px;
+    width: 100%;
+    height: 100vh;
+
+    background: linear-gradient(314deg, #21adde, #7c64e7);
+    background-size: 400% 400%;
+
+    -webkit-animation: aboutGradient 15s ease infinite;
+    -moz-animation: aboutGradient 15s ease infinite;
+    -o-animation: aboutGradient 15s ease infinite;
+    animation: aboutGradient 15s ease infinite;
+}
+
+@-webkit-keyframes aboutGradient {
+    0%{background-position:0% 2%}
+    50%{background-position:100% 99%}
+    100%{background-position:0% 2%}
+}
+@-moz-keyframes aboutGradient {
+    0%{background-position:0% 2%}
+    50%{background-position:100% 99%}
+    100%{background-position:0% 2%}
+}
+@-o-keyframes aboutGradient {
+    0%{background-position:0% 2%}
+    50%{background-position:100% 99%}
+    100%{background-position:0% 2%}
+}
+@keyframes aboutGradient { 
+    0%{background-position:0% 2%}
+    50%{background-position:100% 99%}
+    100%{background-position:0% 2%}
+}
+
+#about-info {
+    /* background-color: white; */
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 100%;
+}
 
 
-
-/* .custom-nav {
-    background-color: transparent;
-} */
+.back-to-top {
+    background-color: rgba(255, 255, 255, 0.50);
+    color: rgb(65, 65, 65);
+    opacity: 0;
+    transition: opacity .6s ease-in-out;
+    z-index: 999;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    border-radius: 0%;
+}
+  
+  a.back-to-top {
+    font-weight: 1000;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.6;
+    padding-left: 2px;
+    padding-top: 14px;
+}
+  
+  .back-to-top.show {
+       opacity: 1;
+  }

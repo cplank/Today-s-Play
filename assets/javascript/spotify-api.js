@@ -100,6 +100,19 @@ function getArtistTopTracks(artistName, playlistId) {
     });
 }
 
-
-
 makePlaylist("Jenny%20Lewis");
+
+//translating tm artist name to spotify
+
+let input = ["jenny lewis", "muse", "the beatles", "neutral milk hotel", "cher"]
+
+function makeArtistNameWorkForSpotify(arr) {
+    let returArray = []
+    for (let i = 0; i < arr.length; i++) {
+        returArray.push(encodeURIComponent(arr[i]));
+    }
+
+    return returArray
+}
+
+console.log(makeArtistNameWorkForSpotify(input))

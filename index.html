@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Today's Play</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,84 +11,227 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Overpass:100,300,600" rel="stylesheet">
 </head>
 
-<body>
 
-    <div class="jumbotron" style="padding-top: 260px; padding-bottom: 260px;">
-        <h4 class="text-center" id="todays-date">Today's date is MM/DD/YYYY</h4>
+
+
+<body>
+    <span id="top"></span>
+
+
+
+    <ul class="nav" id="custom-nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Today's Play</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="about-button" href="#">About</a>
+    </ul>
+
+
+
+    <div class="jumbotron cstmJumbo">
+        <div id="intro">
+            <h4 class="text-center">Today is <span id="todays-date"></span></h4>
+            <h5 class="text-center">Discover new music in your area!</h5>
+        </div>
+
         <br>
+        <br>
+        <br>
+        <br>
+
         <h1 class="text-center">Where are you listening?</h1>
         <br>
 
-        <div class="row">
-            <div class="col-lg-4">
-            </div>
-
-            <div class="col-lg-4">
+        <div class="container">
+            <div id="form-container">
                 <form class="form-inline">
-                    <label class="sr-only" for="inlineFormInputName2">Name</label>
                     <input type="text" class="form-control mb-2 mr-sm-2" id="user-input" placeholder="Ex: Seattle">
 
-                    <button type="button" class="btn btn-primary mb-2" id="enter-button">Enter</button>
+                    <div class="sim-button button14" id="enter-button"><span>Enter</span></div>
+
                 </form>
             </div>
 
-            <div class="col-lg-4">
+            <div id="app-disclosure">
+                <small class="form-text" id="disclosure">*You will be prompted to login to Spotify to use this
+                    app!</small>
             </div>
         </div>
     </div>
 
-    <br>
 
-    <div class="container hidden" id="widgets">
-        <div class="row">
-            <div class="col-lg-6" id="tickermaster-api">
-                <div w-type="event-discovery" w-tmapikey="HuptMNvrDLaDMhz8Y5NOpg5s7hvSDucs"
-                    w-googleapikey="AIzaSyAt-7vjGZ8A-EuZhf1F_AJCUkGU3Zsky_o" w-keyword="" w-theme="listviewthumbnails"
-                    w-colorscheme="dark" w-width="350" w-height="600" w-size="25" w-border="2" w-borderradius="4"
-                    w-radius="25" w-period="custom" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid=""
-                    w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName"
-                    w-id="id_lo5e3" w-source="" w-latlong="34.0390107,-118.2672801"></div>
-            </div>
 
-            <div class="col-lg-6" id="spotify-api">
-                <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="350" height="600"
-                    frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-            </div>
 
+    <div class="container-fluid hidden" id="about-container">
+
+        <div class="container" id="about-info">
+            <h1 class="text-center">
+                What is Today's Play?
+            </h1>
+            <p>Today's Play is a playlist based off of who's playing today! All you need to do is tell us where you're
+                at, or where you want to be, and we'll do the rest! Discover new music playing today in your area and
+                get a feel for your local music scene.</p>
         </div>
 
     </div>
 
+    <a href="#top" id="back-to-top" class="back-to-top" style="display: inline;">Top</a>
 
 
 
 
 
 
+    <!----------------------------------------- JAVASCRIPTS ----------------------------------------->
 
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- jQuery JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
+    <!-- TM Widget JS -->
     <script
         src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/event-discovery/1.0.0/lib/main-widget.js"></script>
-    <script src="assets/javascript/app.js"></script>
+
+    <!-- Moment JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+     <!-- TM API JS -->
+     <script src="assets/javascript/TMApi.js"></script>
+
+    <!-- Custom JS -->
+    <!-- <script src="assets/javascript/app.js"></script> -->
+
+
+    <!-- JUST FOR INDEX JS -->
+    <script>
+        // GLOBAL VARS
+        let currentDate = moment().format('LL'); // grabs current date from m.js in mmmm dd, yyyy format
+        let formattedCurrentDate = moment().format("YYYY-MM-DD"); // creates current date in YYYY-MM-DD format (for TM API)
+
+        let userCity;
+
+        $("#todays-date").text(currentDate); // this changes the DOM's current date
+
+
+        // Call to Carrie's Spotify API js
+        let clientId = "db62643fda74460eb21d4ea74fddb8ce";
+        let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2F";
+
+
+        // userCity = localStorage.setItem("location");
+        // formattedCurrentDate = localStorage.setItem("date");
+
+
+
+        // function when user submits location
+        function userAction(event) {
+            let userCity = $("#user-input").val().trim();
+            renderTMEvents(formattedCurrentDate, "", formattedCurrentDate, "", userCity, "", "", "", "", "");
+            localStorage.setItem("location", userCity);
+            localStorage.setItem("date", formattedCurrentDate);
+            window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user-read-private%20user-read-email&response_type=token&state=123`;
+        };
+
+        // when user presses enter key
+        $("#user-input").keydown(function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                userAction();
+                $("#user-input").val("");
+            };
+        });
+
+        // when user clicks enter button
+        $('#enter-button').click(function (event) {
+            userAction();
+            $("#user-input").val("");
+        });
+
+        // when user clicks about button
+        $('#about-button').click(function (event) {
+            $("#about-container").removeClass("hidden"); // shows about section
+            $('html,body').animate({ // animate page to scroll to about section
+                scrollTop: $("#about-container").offset().top
+            }, 'slow');
+        });
+
+
+
+        // -------------------------------- BACK TO TOP BUTTON STUFF
+        var link = document.getElementById("back-to-top");
+        var amountScrolled = 250;
+
+        function addClass(el, className) {
+
+            if (el.classList) {
+                el.classList.add(className);
+            } else {
+                el.className += ' ' + className;
+            }
+
+        }
+
+        function removeClass(el, className) {
+            if (el.classList)
+                el.classList.remove(className);
+            else
+                el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        }
+
+        window.addEventListener('scroll', function (e) {
+            if (window.scrollY > amountScrolled) {
+                addClass(link, 'show');
+            } else {
+                removeClass(link, 'show');
+            }
+        });
+
+        $('#back-to-top').click(function (event) {  // when start button is clicked
+            $('html,body').animate({ // animate page to scroll to top
+                scrollTop: $("#top").offset().top
+            }, 'slow');
+        });
+    </script>
+
+
 </body>
 
 </html>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <button type="button" class="btn btn-primary mb-2" id="enter-button">Enter</button> -->
+
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 crossorigin="anonymous"></script> -->
+
+<!-- <script src="assets/javascript/moment.js"></script> -->
