@@ -184,7 +184,7 @@
         // function when user submits location
         function userAction(event) {
             let userCity = $("#user-input").val().trim();
-            renderTMEvents(formattedCurrentDate, "", "", "", userCity, "", "", "", "", "");
+            renderTMEvents(formattedCurrentDate, "", formattedCurrentDate, "", userCity, "", "", "", "", "");
             localStorage.setItem("location", userCity);
             localStorage.setItem("date", formattedCurrentDate);
             window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user-read-private%20user-read-email&response_type=token&state=123`;
