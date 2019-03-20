@@ -7,7 +7,7 @@ var TMEvents = [];
 ////////////////////////////////////////////////////////////////////////////////////////////
 // IMPORTANT!!! set "var debug = true" when debugging, else set it to false           //////
 ////////////////////////////////////////////////////////////////////////////////////////////
-var debug = false;
+var debug = true;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //  createEvents(param events) - parses the Ticket Master response into an array of TMArtistObjects    //
@@ -81,6 +81,8 @@ function createEvents(events) {
             TMEvents[i].artistURL.push(events._embedded.events[i].images[n].url);
         }
     }
+    return TMEvents;
+
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -141,7 +143,7 @@ function renderTMEvents(startDate, startTime, endDate, endTime, city, state, pos
     console.log(queryString);
 
     // make the AJAX call into TM
-    $.ajax({
+     $.ajax({
         type: "GET",
         url: queryString,
         async: true,
@@ -149,18 +151,17 @@ function renderTMEvents(startDate, startTime, endDate, endTime, city, state, pos
         success: function (response) {
             // we are here if the AJAX call is successful
             console.log(response);
-            createEvents(response);
-            console.log(TMEvents);
+           var events = createEvents(response);
+           return events;
+            // console.log(TMEvents);
         },
         error: function (xhr, status, err) {
             // This time, we do not end up here!
             // TODO: return an error code for now just setTMEvent to empty
             TMEvents = "";
+            console.log(err);
         }
     });
-
-    // return the array of performing artists to the calling applicaition
-    return TMEvents;
 };
 
 if (debug) {
@@ -181,5 +182,6 @@ if (debug) {
     var maxEvents = 20;
 
     //TODO: moment.js is available to grab todays date if not passed in...
-    renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents);
+    var events = renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents);
+    console.log(events);
 };
