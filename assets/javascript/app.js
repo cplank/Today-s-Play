@@ -27,11 +27,14 @@ formattedCurrentDate = localStorage.getItem("date");
 // function when user submits location
 function userAction() {
 
-    userCity = $("#user-input").val().trim();
+    userCity = $("#user-input").val().trim(); // grab user input for City
+
+
     $("#widgets").removeClass("hidden"); // shows widget section
-    $('html,body').animate({ // animate page to scroll to widget div
+    $('html,body').animate({ // animate scroll to widget div
         scrollTop: $("#widgets").offset().top
     }, 'slow');
+
     let userTMEvents = [];
     userTMEvents = renderTMEvents(formattedCurrentDate, "", formattedCurrentDate, "", userCity, "", "", "", "", "");
 
@@ -39,21 +42,35 @@ function userAction() {
     window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user-read-private%20user-read-email&response_type=token&state=123`;
 };
 
+
+
+// CALLBACK LOADS TO WIDGETS SECTION
+window.onload = function () {
+    $('html,body').animate({ // animate page to scroll to about section
+        scrollTop: $("#widgets").offset().top
+    });
+};
+
+
+
+
 // when user presses enter key
 $("#user-input").keydown(function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
         userAction();
+        $("#user-input").val("");
     };
 });
 
 // when user clicks enter button
 $('#enter-button').click(function (event) {
     userAction();
+    $("#user-input").val("");
 });
 
 // when user clicks about button
-$('#about-button').click(function (event) { 
+$('#about-button').click(function (event) {
     $("#about-container").removeClass("hidden"); // shows about section
     $('html,body').animate({ // animate page to scroll to about section
         scrollTop: $("#about-container").offset().top
@@ -67,7 +84,6 @@ var link = document.getElementById("back-to-top");
 var amountScrolled = 250;
 
 function addClass(el, className) {
-
     if (el.classList) {
         el.classList.add(className);
     } else {
@@ -108,6 +124,11 @@ $('#back-to-top').click(function (event) {  // when start button is clicked
 
 
 // let tmParams = formattedCurrentDate + " " + userCity;
+
+// This also works, doesn't scroll
+// $(document).ready(function(){
+//     window.location.hash = '#widgets';
+// })
 
 
 

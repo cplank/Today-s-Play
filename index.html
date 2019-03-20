@@ -28,7 +28,7 @@
 
     <ul class="nav" id="custom-nav">
         <li class="nav-item">
-            <a class="nav-link active" href="#">LOGO</a>
+            <a class="nav-link active" href="#">Today's Play</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="about-button" href="#">About</a>
@@ -46,7 +46,7 @@
         <br>
         <br>
         <br>
-        <br>
+
         <h1 class="text-center">Where are you listening?</h1>
         <br>
 
@@ -154,12 +154,14 @@
             if (event.keyCode === 13) {
                 event.preventDefault();
                 userAction();
+                $("#user-input").val("");
             };
         });
 
         // when user clicks enter button
         $('#enter-button').click(function (event) {
             userAction();
+            $("#user-input").val("");
         });
 
         // when user clicks about button
