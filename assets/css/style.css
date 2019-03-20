@@ -33,6 +33,10 @@ body { /* whole body is green gradient */
         100%{background-position:0% 50%}
     }
 
+.widget-title {
+    background-color: blue;
+}
+
 #custom-nav {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -162,18 +166,23 @@ p {
     padding-top: 50px;
     width: 100%;
     height: 100vh;
+    overflow: auto;
 }
 
 #tickermaster-api {
-    /* background-color: red; */
+    background-color: red;
     display: flex;
     justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 35px;
 }
 
 #spotify-api {
-    /* background-color: green; */
+    background-color: green;
     display: flex;
     justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 35px;
 }
 
 #login-button {
@@ -227,8 +236,8 @@ p {
 
 
 .back-to-top {
-    background-color: #000000;
-    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.50);
+    color: rgb(65, 65, 65);
     opacity: 0;
     transition: opacity .6s ease-in-out;
     z-index: 999;
