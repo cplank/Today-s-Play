@@ -116,3 +116,9 @@ function makeArtistNameWorkForSpotify(arr) {
 }
 
 console.log(makeArtistNameWorkForSpotify(input))
+
+function changeSpotifyWidget() {
+    $("#spotify-widget").attr("src", `https://open.spotify.com/embed/playlist/${newPlayListId}`)
+}
+
+changeSpotifyWidget();
