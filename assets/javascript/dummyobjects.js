@@ -183,3 +183,21 @@ let dummyCreatePlaylist = {
 }
 
 let dummyAddTrack = { "snapshot_id": "JbtmHBDBAYu3/bt8BOXKjzKx3i0b6LCa/wVjyl6qQ2Yf6nFXkbmzuEa+ZI/U1yF+" }
+
+let input = [2, 1, 2]
+
+function countArray(arr) {
+    for (i = 0; i < arr.length; i++) {
+        let x = arr[i];
+        for (j = 1; j < arr.length; i++) {
+            let y = arr[j];
+        }
+    }
+    if (x === y) {
+        let duds = [];
+        duds.push(x);
+    }
+}
+
+console.log(countArray(input));
+
