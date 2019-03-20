@@ -22,11 +22,19 @@
 
 
 <body>
-    <!-- style="padding-top: 260px; padding-bottom: 260px;" -->
+    <span id="top"></span>
+
+    <ul class="nav" id="custom-nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">LOGO</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="about-button" href="#">About</a>
+    </ul>
 
     <div class="jumbotron cstmJumbo">
         <div id="intro">
-            <h4 class="text-center">Today's date is <span id="todays-date"></span></h4>
+            <h4 class="text-center">Today is <span id="todays-date"></span></h4>
             <h5 class="text-center">Discover new music in your area! (this is the callbackpage)</h5>
         </div>
 
@@ -48,9 +56,10 @@
                 </form>
             </div>
 
-            <div id="app-disclosure">
-                <small class="form-text" id="disclosure">*You will be prompted to login to Spotify to use this app!</small>
-            </div>
+            <!-- <div id="app-disclosure">
+                <small class="form-text" id="disclosure">*You will be prompted to login to Spotify to use this
+                    app!</small>
+            </div> -->
         </div>
     </div>
 
@@ -113,11 +122,13 @@
 
     </div>
 
+    <a href="#top" id="back-to-top" class="back-to-top" style="display: inline;">Top</a>
+
 
 
 
     <script>
- 
+
     </script>
 
     <!----------------------------------------- JAVASCRIPTS ----------------------------------------->
