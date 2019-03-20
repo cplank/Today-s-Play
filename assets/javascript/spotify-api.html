@@ -15,7 +15,7 @@
 <body>
     <button type="button" class="btn btn-info">Login to Spotify</button>
 
-    <iframe src="https://open.spotify.com/embed/playlist/6PSkfrqZ0ZAr5wtQLZyWho" width="300" height="380"
+    <!-- <iframe src="https://open.spotify.com/embed/playlist/6PSkfrqZ0ZAr5wtQLZyWho" width="300" height="380"
         frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
     <div w-type="event-discovery" w-tmapikey="HuptMNvrDLaDMhz8Y5NOpg5s7hvSDucs"
@@ -23,7 +23,7 @@
         w-colorscheme="dark" w-width="350" w-height="600" w-size="25" w-border="2" w-borderradius="4" w-radius="25"
         w-period="day" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid=""
         w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_lo5e3" w-source=""
-        w-countrycode="US" w-postalcode="" w-city="Seattle" w-latlong=""></div>
+        w-countrycode="US" w-postalcode="" w-city="Seattle" w-latlong=""></div> -->
 
 
 
@@ -60,6 +60,19 @@
             window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=playlist-modify-public%20user-read-private%20user-read-email&response_type=token&state=123`
         })
 
+
+        let input = ["jenny lewis", "muse", "the beatles", "neutral milk hotel", "cher"]
+
+        function makeArtistNameWorkForSpotify(arr) {
+            let returArray = []
+            for (let i = 0; i < arr.length; i++) {
+                returArray.push(encodeURIComponent(arr[i]));
+            }
+
+            return returArray
+        }
+
+        console.log(makeArtistNameWorkForSpotify(input))
 
 
 
