@@ -8,6 +8,8 @@ let dummycrap = "#access_token=BQDu3iiv1y5zUmeevoH2tIIa9hVADONDmqLatxT7mR19FX92P
 let url = window.location.href + dummycrap;
 let newPlayListId = "";
 
+let artistName = "Jenny Lewis"
+
 
 let accessToken = getAccessToken('access_token', url);
 
@@ -100,22 +102,24 @@ function getArtistTopTracks(artistName, playlistId) {
     });
 }
 
-makePlaylist("Jenny%20Lewis");
+function makeArtistNameWorkForSpotify(arr) {
+    let returArray = []
+    for (let i = 0; i < arr.length; i++) {
+        returArray.push(encodeURIComponent(arr[i]));
+    }
+
+    return returArray
+}
+
+makeArtistNameWorkForSpotify(artistName);
+
+makePlaylist(artistName);
 
 //translating tm artist name to spotify
 
 // let input = ["jenny lewis", "muse", "the beatles", "neutral milk hotel", "cher"]
 
-// function makeArtistNameWorkForSpotify(arr) {
-//     let returArray = []
-//     for (let i = 0; i < arr.length; i++) {
-//         returArray.push(encodeURIComponent(arr[i]));
-//     }
 
-//     return returArray
-// }
-
-// console.log(makeArtistNameWorkForSpotify(input))
 
 
 function changeSpotifyWidget() {
