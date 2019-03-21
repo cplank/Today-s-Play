@@ -1,16 +1,18 @@
-// GLOBAL VARS
-let currentDate = moment().format('LL'); // grabs current date from m.js in mmmm dd, yyyy format
-let formattedCurrentDate = moment().format("YYYY-MM-DD"); // creates current date in YYYY-MM-DD format (for TM API)
-
-let userCity;
-
-$("#todays-date").text(currentDate); // this changes the DOM's current date
-
 //Getting the date for the ticketmaster widget
 var todayDate = moment().format("YYYY-MM-DD");
 console.log(todayDate)
 var addDay = moment().add(1, "days").format("YYYY-MM-DD");
 console.log(addDay);
+
+// GLOBAL VARS
+let currentDate = moment().format('LL'); // grabs current date from m.js in mmmm dd, yyyy format
+
+
+let userCity;
+
+$("#todays-date").text(currentDate); // this changes the DOM's current date
+
+
 
 
 
@@ -187,8 +189,11 @@ function renderTMEvents(startDate, startTime, endDate, endTime, city, state, pos
             // we are here if the AJAX call is successful
             console.log(response);
             var events = createEvents(response);
-            return TMEvents;
+            // return TMEvents;
             // console.log(TMEvents);
+            for (let i = 0; i < events.length; i++) {
+                makePlaylist(encodeURIComponent(events[i].artistName));
+            }
         },
         error: function (xhr, status, err) {
             // This time, we do not end up here!
@@ -214,14 +219,18 @@ function userAction() {
         scrollTop: $("#widgets").offset().top
     }, 'slow');
 
+    let formattedCurrentDate = moment().format("YYYY-MM-DD"); // creates current date in YYYY-MM-DD format (for TM API)
     renderTMEvents(formattedCurrentDate, "", formattedCurrentDate, "", userCity, "", "", "", "", "") //.then(function (data) {
-            // console.log(data);
-        //})
-        console.log(TMEvents);
+    // console.log(data);
+    //})
 
-        $("#todays-date").val("");
-        // window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user-read-private%20user-read-email&response_type=token&state=123`;
-    };
+    console.log(TMEvents);
+
+
+
+    $("#todays-date").val("");
+    // window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user-read-private%20user-read-email&response_type=token&state=123`;
+};
 
 
 
