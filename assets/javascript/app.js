@@ -301,7 +301,7 @@ function inputTodayDate() {
 }
 function addDayInWidget() {
 
-    let spotyWidgy = '<div w-type="event-discovery" w-tmapikey="HuptMNvrDLaDMhz8Y5NOpg5s7hvSDucs" w-googleapikey="AIzaSyAt-7vjGZ8A-EuZhf1F_AJCUkGU3Zsky_o" w-keyword="" w-theme="listviewthumbnails" w-colorscheme="dark" w-width="350" w-height="600" w-size="25" w-border="2" w-borderradius="4" w-postalcode="" w-radius="25" w-city="Seattle" w-period="custom" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_o1oh7a" w-countrycode="US" w-source="" w-classificationname="music" w-startdatetime=' + addDay + ' w-enddatetime=' + addDay + ' w-latlong=""></div>'
+    let spotyWidgy = '<div w-type="event-discovery" w-tmapikey="HuptMNvrDLaDMhz8Y5NOpg5s7hvSDucs" w-googleapikey="AIzaSyAt-7vjGZ8A-EuZhf1F_AJCUkGU3Zsky_o" w-keyword="" w-theme="listviewthumbnails" w-colorscheme="dark" w-width="350" w-height="500" w-size="25" w-border="2" w-borderradius="4" w-postalcode="" w-radius="25" w-city="Seattle" w-period="custom" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_o1oh7a" w-countrycode="US" w-source="" w-classificationname="music" w-startdatetime=' + addDay + ' w-enddatetime=' + addDay + ' w-latlong=""></div>'
 
     $('#spotifywidgethole').html(spotyWidgy);
 
