@@ -4,8 +4,8 @@ let getAccessToken = function (field, url) {
     let string = reg.exec(url);
     return string ? string[1] : null;
 };
-let dummycrap = "#access_token=BQCcaaEetsVv4N2Ia0h7jNZoX7teC30Wo75bnVF6-9LyA272YsKySDJPo_ZBUa3dnTMJwSxTAAuDI7m8R5WmhX2sItnkb_Xj2FT6yO0XcbgWZymdn5cn154EprxWxrtrEp_-741bAE19E1xI3JfzSbte9K8cZ4bjDPIxd-j8hRhAK7eUh1pN8OdRzFnZpXqvYZasiV7F162WwADetn0&token_type=Bearer&expires_in=3600&state=123";
-let url = window.location.href + dummycrap;
+// let dummycrap = "#access_token=BQCcaaEetsVv4N2Ia0h7jNZoX7teC30Wo75bnVF6-9LyA272YsKySDJPo_ZBUa3dnTMJwSxTAAuDI7m8R5WmhX2sItnkb_Xj2FT6yO0XcbgWZymdn5cn154EprxWxrtrEp_-741bAE19E1xI3JfzSbte9K8cZ4bjDPIxd-j8hRhAK7eUh1pN8OdRzFnZpXqvYZasiV7F162WwADetn0&token_type=Bearer&expires_in=3600&state=123";
+let url = window.location.href
 //let newPlayListId = "";
 
 
