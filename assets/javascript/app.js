@@ -218,6 +218,7 @@ function renderTMEvents(startDate, startTime, endDate, endTime, city, state, pos
 function userAction() {
 
     userCity = $("#user-input").val().trim(); // grab user input for City
+    anotherCity = $("#user-input").val().trim(); // grab user input for City
     // localStorage.setItem("location", userCity);
     // localStorage.setItem("date", formattedCurrentDate);
 
@@ -228,6 +229,16 @@ function userAction() {
 
 
     $("#widgets").removeClass("hidden"); // shows widget section
+
+    function anotherTMWidget() {
+
+        let nextSpotify = '<div w-type="event-discovery" w-tmapikey="HuptMNvrDLaDMhz8Y5NOpg5s7hvSDucs" w-googleapikey="AIzaSyAt-7vjGZ8A-EuZhf1F_AJCUkGU3Zsky_o" w-keyword="" w-theme="listviewthumbnails" w-colorscheme="dark" w-width="350" w-height="500" w-size="25" w-border="2" w-borderradius="4" w-postalcode="" w-radius="25" w-city=' + anotherCity + ' w-period="custom" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_o1oh7a" w-countrycode="US" w-source="" w-classificationname="music" w-startdatetime=' + addDay + ' w-enddatetime=' + addDay + ' w-latlong=""></div>'
+
+        $('#spotifywidgethole').html(nextSpotify);
+
+
+    }
+    anotherTMWidget();
 
     $('html,body').animate({ // animate scroll to widget div
         scrollTop: $("#widgets").offset().top
@@ -326,7 +337,7 @@ $('#back-to-top').click(function (event) {  // when start button is clicked
 function inputTodayDate() {
 
 }
-function addDayInWidget(city, startdate, enddate) {
+function addDayInWidget() {
 
     let spotyWidgy = '<div w-type="event-discovery" w-tmapikey="HuptMNvrDLaDMhz8Y5NOpg5s7hvSDucs" w-googleapikey="AIzaSyAt-7vjGZ8A-EuZhf1F_AJCUkGU3Zsky_o" w-keyword="" w-theme="listviewthumbnails" w-colorscheme="dark" w-width="350" w-height="500" w-size="25" w-border="2" w-borderradius="4" w-postalcode="" w-radius="25" w-city=' + userCity + ' w-period="custom" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_o1oh7a" w-countrycode="US" w-source="" w-classificationname="music" w-startdatetime=' + addDay + ' w-enddatetime=' + addDay + ' w-latlong=""></div>'
 
