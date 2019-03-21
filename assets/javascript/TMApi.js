@@ -164,6 +164,7 @@ function renderTMEvents(startDate, startTime, endDate, endTime, city, state, pos
     });
 };
 
+
 if (debug) {
     // SET "debug = false" when running this API in production. Used only to debug the function
     // renderTMEvents() by setting up appropriate calling params and then calling the renderTMEvent
