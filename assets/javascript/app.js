@@ -194,7 +194,6 @@ function renderTMEvents(startDate, startTime, endDate, endTime, city, state, pos
 
             let artistNames = [];
             for (let i = 0; i < events.length; i++) {
-
                 artistNames.push(events[i].artistName);
                 // makePlaylist(encodeURIComponent(events[i].artistName))
             }
@@ -240,12 +239,16 @@ function userAction() {
 
 
 
-
 // CALLBACK LOADS TO WIDGETS SECTION
 window.onload = function () {
     $('html,body').animate({ // animate page to scroll to about section
         scrollTop: $("#widgets").offset().top
     });
+
+    // when we hit the page, do this right away, but only if we're on the callback page.
+    if (window.location.href.indexOf("callback") > -1) {
+        renderTMEvents(formattedCurrentDate, "", formattedCurrentDate, "", userCity, "", "", "", "", "") //.then(function (data) {
+    }
 };
 
 
