@@ -161,6 +161,7 @@ function parseEvents(resultArray, parseString) {
         if (postalCode) {
             queryString = queryString + "&postalCode=" + postalCode;
         }
+<<<<<<< HEAD
         if (state) {
             queryString = queryString + "&state=" + state;
         }
@@ -211,3 +212,30 @@ function parseEvents(resultArray, parseString) {
         var events = renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents);
         console.log(events);
     };
+=======
+    });
+};
+
+
+if (debug) {
+    // SET "debug = false" when running this API in production. Used only to debug the function
+    // renderTMEvents() by setting up appropriate calling params and then calling the renderTMEvent
+    // Test the API
+    var startDate = "2019-03-20"
+    var startTime = "00:00:00";
+
+    var endDate = "2019-03-20"
+    var endTime = "23:59:59";
+
+    var postalCode = "";
+    var city = "Seattle";
+    var radius = 150;
+    var state = "";
+    var countryCode = "&countryCode=US";
+    var maxEvents = 20;
+
+    //TODO: moment.js is available to grab todays date if not passed in...
+    var events = renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents);
+    console.log(events);
+};
+>>>>>>> 208054e10536e2951594cd6f3e33614d9fe8e651

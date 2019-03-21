@@ -4,14 +4,14 @@ let getAccessToken = function (field, url) {
     let string = reg.exec(url);
     return string ? string[1] : null;
 };
-let dummycrap = "#access_token=BQDu3iiv1y5zUmeevoH2tIIa9hVADONDmqLatxT7mR19FX92PnxZvohZJjEOyfQp2E5isch4SMFooZad7r-0ytsCRaTSLL_8Q41YUZhz7m2-JFLalPWvIs4qGvkXQTVCC23Ume7YCnzGVQwVJUvdbgEOEsvpx87uudfBd4Dqer8TgeugJ_e23TtB1GiD2pLRf5yqaUuLK3rGcwxgca0&token_type=Bearer&expires_in=3600&state=123";
-let url = window.location.href + dummycrap;
-let newPlayListId = "";
+// let dummycrap = "#access_token=BQCcaaEetsVv4N2Ia0h7jNZoX7teC30Wo75bnVF6-9LyA272YsKySDJPo_ZBUa3dnTMJwSxTAAuDI7m8R5WmhX2sItnkb_Xj2FT6yO0XcbgWZymdn5cn154EprxWxrtrEp_-741bAE19E1xI3JfzSbte9K8cZ4bjDPIxd-j8hRhAK7eUh1pN8OdRzFnZpXqvYZasiV7F162WwADetn0&token_type=Bearer&expires_in=3600&state=123";
+let url = window.location.href
+//let newPlayListId = "";
 
 
 let accessToken = getAccessToken('access_token', url);
 
-function makePlaylist(artistName) {
+function makePlaylist(artistNames) {
     let queryUrl = "https://api.spotify.com/v1/me"
 
     $.ajax({
@@ -29,7 +29,7 @@ function makePlaylist(artistName) {
         $.ajax({
             url: queryUrl,
             method: "POST",
-            data: JSON.stringify({ "name": "Todays Music" }),
+            data: JSON.stringify({ "name": "Does this work" }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             headers: {
@@ -37,9 +37,11 @@ function makePlaylist(artistName) {
             },
         }).then(function (response) {
             let newPlayListObj = response
-            newPlayListId = response.id
-
-            getArtistTopTracks(artistName, newPlayListId)
+            let newPlayListId = response.id
+            changeSpotifyWidget(newPlayListId);
+            for (let i = 0; i < artistNames.length; i++) {
+                getArtistTopTracks(artistNames[i], newPlayListId)
+            }
         })
 
     })
@@ -93,18 +95,12 @@ function getArtistTopTracks(artistName, playlistId) {
                 allTheUris.push(topTracksUri)
                 console.log(topTracksUri);
             }
-            addTracksToPlaylist(allTheUris, newPlayListId);
+            addTracksToPlaylist(allTheUris, playlistId);
         });
 
 
     });
 }
-
-makePlaylist("Jenny%20Lewis");
-
-//translating tm artist name to spotify
-
-let input = ["jenny lewis", "muse", "the beatles", "neutral milk hotel", "cher"]
 
 function makeArtistNameWorkForSpotify(arr) {
     let returArray = []
@@ -115,4 +111,17 @@ function makeArtistNameWorkForSpotify(arr) {
     return returArray
 }
 
-console.log(makeArtistNameWorkForSpotify(input))
+//makeArtistNameWorkForSpotify(artistName);
+
+//translating tm artist name to spotify
+
+let input = ["jenny lewis", "muse", "the beatles", "neutral milk hotel", "cher"]
+
+
+
+
+function changeSpotifyWidget(playlistId) {
+    $("#spotify-widget").attr("src", `https://open.spotify.com/embed/playlist/${playlistId}`)
+}
+
+// changeSpotifyWidget();

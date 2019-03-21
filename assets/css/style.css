@@ -170,7 +170,7 @@ p {
 }
 
 #tickermaster-api {
-    background-color: red;
+    /* background-color: red; */
     display: flex;
     justify-content: center;
     margin-top: 15px;
@@ -178,7 +178,7 @@ p {
 }
 
 #spotify-api {
-    background-color: green;
+    /* background-color: green; */
     display: flex;
     justify-content: center;
     margin-top: 15px;
