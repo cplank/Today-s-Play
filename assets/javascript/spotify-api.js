@@ -11,7 +11,7 @@ let url = window.location.href + dummycrap;
 
 let accessToken = getAccessToken('access_token', url);
 
-function makePlaylist(artistName) {
+function makePlaylist(artistNames) {
     let queryUrl = "https://api.spotify.com/v1/me"
 
     $.ajax({
@@ -29,7 +29,7 @@ function makePlaylist(artistName) {
         $.ajax({
             url: queryUrl,
             method: "POST",
-            data: JSON.stringify({ "name": "Todays Music" }),
+            data: JSON.stringify({ "name": "Does this work" }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             headers: {
@@ -39,7 +39,9 @@ function makePlaylist(artistName) {
             let newPlayListObj = response
             let newPlayListId = response.id
             changeSpotifyWidget(newPlayListId);
-            getArtistTopTracks(artistName, newPlayListId)
+            for (let i = 0; i < artistNames.length; i++) {
+                getArtistTopTracks(artistNames[i], newPlayListId)
+            }
         })
 
     })

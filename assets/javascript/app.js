@@ -191,9 +191,15 @@ function renderTMEvents(startDate, startTime, endDate, endTime, city, state, pos
             var events = createEvents(response);
             // return TMEvents;
             // console.log(TMEvents);
+
+            let artistNames = [];
             for (let i = 0; i < events.length; i++) {
-                makePlaylist(encodeURIComponent(events[i].artistName));
+
+                artistNames.push(events[i].artistName);
+                // makePlaylist(encodeURIComponent(events[i].artistName))
             }
+
+            makePlaylist(makeArtistNameWorkForSpotify(artistNames));
         },
         error: function (xhr, status, err) {
             // This time, we do not end up here!
