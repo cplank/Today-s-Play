@@ -218,13 +218,13 @@ function renderTMEvents(startDate, startTime, endDate, endTime, city, state, pos
 function userAction() {
 
     userCity = $("#user-input").val().trim(); // grab user input for City
-    // localStorage.setItem("location", userCity);
-    // localStorage.setItem("date", formattedCurrentDate);
+    localStorage.setItem("location", userCity);
+    localStorage.setItem("date", formattedCurrentDate);
 
-    // userCity = localStorage.getItem("location");
-    // formattedCurrentDate = localStorage.getItem("date");
+    userCity = localStorage.getItem("location");
+    formattedCurrentDate = localStorage.getItem("date");
 
-    
+
 
 
     $("#widgets").removeClass("hidden"); // shows widget section
