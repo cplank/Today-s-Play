@@ -127,6 +127,7 @@ function createEvents(events) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents) {
 
+    TMEvents = [];
     // We are expecting a valid date and city or else stop....TODO: return a valid error code
     if ((!startDate) || (!endDate) || (!city)) {
         alert("Fatal Error - no date  or city passed into renderTMEvents");
@@ -223,8 +224,11 @@ function userAction() {
     // userCity = localStorage.getItem("location");
     // formattedCurrentDate = localStorage.getItem("date");
 
+    
+
 
     $("#widgets").removeClass("hidden"); // shows widget section
+    addDayInWidget();
     $('html,body').animate({ // animate scroll to widget div
         scrollTop: $("#widgets").offset().top
     }, 'slow');
