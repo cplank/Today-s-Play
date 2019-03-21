@@ -234,7 +234,7 @@ function userAction() {
 
 
     $("#todays-date").val("");
-    // window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user-read-private%20user-read-email&response_type=token&state=123`;
+    window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=playlist-modify-public%20user-read-private%20user-read-email&response_type=token&state=123`;
 };
 
 

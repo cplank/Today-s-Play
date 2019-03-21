@@ -148,7 +148,7 @@
             // console.log(userTMEvents);
             localStorage.setItem("location", userCity);
             localStorage.setItem("date", formattedCurrentDate);
-            window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=user-read-private%20user-read-email&response_type=token&state=123`;
+            window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=playlist-modify-public%20user-read-private%20user-read-email&response_type=token&state=123`;
         };
 
         // when user presses enter key
