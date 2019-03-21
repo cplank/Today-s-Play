@@ -228,7 +228,7 @@ function userAction() {
 
 
 
-    $("#widgets").removeClass("hidden"); // shows widget section
+    // $("#widgets").removeClass("hidden"); // shows widget section
 
     function anotherTMWidget() {
 
