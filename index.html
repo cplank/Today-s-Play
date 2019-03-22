@@ -28,7 +28,7 @@
 
     <ul class="nav" id="custom-nav">
         <li class="nav-item">
-            <a class="nav-link active" href="#">Today's Play</a>
+            <a class="nav-link disabled">Today's Play</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="about-button" href="#">About</a>
@@ -112,12 +112,6 @@
     <!-- Moment JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 
-    <!-- TM API JS -->
-    <!-- <script src="assets/javascript/TMApi.js"></script> -->
-
-    <!-- Custom JS -->
-    <!-- <script src="assets/javascript/app.js"></script> -->
-
 
     <!-- JUST FOR INDEX JS -->
     <script>
@@ -130,22 +124,16 @@
         $("#todays-date").text(currentDate); // this changes the DOM's current date
 
 
-        // Call to Carrie's Spotify API js
+        // Call to Spotify API js
         let clientId = "db62643fda74460eb21d4ea74fddb8ce";
         let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2Fcallback";
-
-
-        // userCity = localStorage.setItem("location");
-        // formattedCurrentDate = localStorage.setItem("date");
 
         var userTMEvents = null;
 
         // function when user submits location
         function userAction(event) {
             let userCity = $("#user-input").val().trim();
-            // let userTMEvents = [];
-            // userTMEvents = renderTMEvents(formattedCurrentDate, "", formattedCurrentDate, "", userCity, "", "", "", "", "");
-            // console.log(userTMEvents);
+           
             localStorage.setItem("location", userCity);
             localStorage.setItem("date", formattedCurrentDate);
             window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=playlist-modify-public%20user-read-private%20user-read-email&response_type=token&state=123`;
@@ -216,24 +204,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <button type="button" class="btn btn-primary mb-2" id="enter-button">Enter</button> -->
-
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-crossorigin="anonymous"></script> -->
-
-<!-- <script src="assets/javascript/moment.js"></script> -->

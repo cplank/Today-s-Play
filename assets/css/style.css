@@ -47,6 +47,10 @@ a {
     font-weight: 200;
 }
 
+.disabled {
+    color: white!important;
+}
+
 
 h1 {
     color: white;
