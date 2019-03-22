@@ -17,23 +17,7 @@ let userCity;
 $("#todays-date").text(currentDate); // this changes the DOM's current date
 
 
-<<<<<<< HEAD
 // Call to Spotify API js
-=======
-
-
-////////////////////////////////////////////
-// Call to Rob's TM API js
-// function renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents) {
-//     console.log(startDate);
-//     console.log(city);
-// };
-///////////////////////////////////////////
-
-
-
-// Variables for the Spotify redirect URI
->>>>>>> 46e79060c204f45b01e68223aa158ce9b39b36bb
 let clientId = "db62643fda74460eb21d4ea74fddb8ce";
 let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2Fcallback";
 
@@ -42,15 +26,12 @@ let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2Fcallback";
 userCity = localStorage.getItem("location");
 formattedCurrentDate = localStorage.getItem("date");
 
+
+
 ///////////////////////////////////////////////////////////////////////////
 //TicketMaster API                                                   //////
 ///////////////////////////////////////////////////////////////////////////
 
-<<<<<<< HEAD
-
-// Call to Ticketmaster API
-=======
->>>>>>> 46e79060c204f45b01e68223aa158ce9b39b36bb
 // TMArtistObject contains information about one performing artist
 
 // Array of Artists 
@@ -255,8 +236,10 @@ function renderTMEvents(startDate, startTime, endDate, endTime, city, state, pos
 
 
 
+///////////////////////////////////////////////////////////////////////////
+// DOM function when user submits location                           //////
+///////////////////////////////////////////////////////////////////////////
 
-// DOM function when user submits location
 function userAction() {
 
     userCity = $("#user-input").val().trim(); // grab user input for City
@@ -266,7 +249,6 @@ function userAction() {
 
     // userCity = localStorage.getItem("location");
     // formattedCurrentDate = localStorage.getItem("date");
-
 
     function anotherTMWidget() {
 
@@ -295,13 +277,15 @@ function userAction() {
     console.log(TMEvents);
 
 
-
     $("#todays-date").val("");
 };
 
 
 
-// CALLBACK LOADS TO WIDGETS SECTION
+///////////////////////////////////////////////////////////////////////////
+// CALLBACK LOADS TO WIDGETS SECTION                                 //////
+///////////////////////////////////////////////////////////////////////////
+
 window.onload = function () {
     $('html,body').animate({ // animate page to scroll to widget section
         scrollTop: $("#widgets").offset().top
@@ -315,6 +299,9 @@ window.onload = function () {
 
 
 
+///////////////////////////////////////////////////////////////////////////
+// DOM USER EVENTS                                                   //////
+///////////////////////////////////////////////////////////////////////////
 
 // when user PRESSES ENTER KEY
 $("#user-input").keydown(function (event) {
