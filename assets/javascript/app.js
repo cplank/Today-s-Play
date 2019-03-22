@@ -12,21 +12,45 @@ let formattedCurrentDate = moment().format("YYYY-MM-DD");
 
 let userCity;
 
+
+//Changing the DOM's current date
 $("#todays-date").text(currentDate); // this changes the DOM's current date
 
 
-
+<<<<<<< HEAD
 // Call to Spotify API js
+=======
+
+
+////////////////////////////////////////////
+// Call to Rob's TM API js
+// function renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents) {
+//     console.log(startDate);
+//     console.log(city);
+// };
+///////////////////////////////////////////
+
+
+
+// Variables for the Spotify redirect URI
+>>>>>>> 46e79060c204f45b01e68223aa158ce9b39b36bb
 let clientId = "db62643fda74460eb21d4ea74fddb8ce";
 let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2Fcallback";
 
 
+// On callback, retrieving the location and date from local storage
 userCity = localStorage.getItem("location");
 formattedCurrentDate = localStorage.getItem("date");
 
+///////////////////////////////////////////////////////////////////////////
+//TicketMaster API                                                   //////
+///////////////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
 
 // Call to Ticketmaster API
+=======
+>>>>>>> 46e79060c204f45b01e68223aa158ce9b39b36bb
 // TMArtistObject contains information about one performing artist
 
 // Array of Artists 
@@ -217,7 +241,7 @@ function renderTMEvents(startDate, startTime, endDate, endTime, city, state, pos
                 // makePlaylist(encodeURIComponent(events[i].artistName))
             }
 
-            makePlaylist(makeArtistNameWorkForSpotify(artistNames));
+            makePlaylist(makeArtistNameWorkForSpotify(artistNames), userCity, todayDate);
         },
         error: function (xhr, status, err) {
             // This time, we do not end up here!

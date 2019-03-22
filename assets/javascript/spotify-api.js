@@ -1,17 +1,17 @@
+//parse the url for the access token 
 let getAccessToken = function (field, url) {
 
     let reg = new RegExp('[#?&]' + field + '=([^&#]*)', 'i');
     let string = reg.exec(url);
     return string ? string[1] : null;
 };
-// let dummycrap = "#access_token=BQCcaaEetsVv4N2Ia0h7jNZoX7teC30Wo75bnVF6-9LyA272YsKySDJPo_ZBUa3dnTMJwSxTAAuDI7m8R5WmhX2sItnkb_Xj2FT6yO0XcbgWZymdn5cn154EprxWxrtrEp_-741bAE19E1xI3JfzSbte9K8cZ4bjDPIxd-j8hRhAK7eUh1pN8OdRzFnZpXqvYZasiV7F162WwADetn0&token_type=Bearer&expires_in=3600&state=123";
+
 let url = window.location.href
-//let newPlayListId = "";
-
-
 let accessToken = getAccessToken('access_token', url);
 
-function makePlaylist(artistNames) {
+//makePlaylist 
+
+function makePlaylist(artistNames, city, date) {
     let queryUrl = "https://api.spotify.com/v1/me"
 
     $.ajax({
@@ -29,7 +29,7 @@ function makePlaylist(artistNames) {
         $.ajax({
             url: queryUrl,
             method: "POST",
-            data: JSON.stringify({ "name": "Does this work" }),
+            data: JSON.stringify({ "name": `Today's Play for ${date} in ${city}` }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             headers: {
