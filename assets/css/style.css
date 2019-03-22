@@ -1,9 +1,10 @@
 body { /* whole body is green gradient */
     font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.1rem;
     width: 100%;
     height: 100vh;
     
-    background: linear-gradient(314deg, #51e493, #309b85);
+    background: linear-gradient(314deg, #42d87b, #0c8373);
     background-size: 400% 400%;
     
     -webkit-animation: AnimationName 10s ease infinite;
@@ -33,9 +34,6 @@ body { /* whole body is green gradient */
         100%{background-position:0% 50%}
     }
 
-.widget-title {
-    background-color: blue;
-}
 
 #custom-nav {
     padding-top: 15px;
@@ -75,11 +73,9 @@ p {
 #form-container {
     display: flex;
     justify-content: center;
-    /* background-color: green; */
 }
 
 #user-input {
-    /* background-color: red; */
     width: 300px;
     margin-left: 0.5rem;
     border-radius: 0px;
@@ -161,10 +157,6 @@ p {
     color: white;
 }
 
-#intro {
-    /* background-color: blue; */
-}
-
 .hidden {
     display: none;
 }
@@ -205,12 +197,12 @@ p {
 }
 
 #about-container { /* background is blue gradient */
-    /* background-color: white; */
     padding-top: 100px;
     width: 100%;
     height: 100vh;
+    overflow: auto;
 
-    background: linear-gradient(314deg, #21dec5, #856fe7);
+    background: linear-gradient(314deg, #1dc2ac, #2a44d8);
     background-size: 400% 400%;
 
     -webkit-animation: aboutGradient 15s ease infinite;
@@ -241,7 +233,6 @@ p {
 }
 
 #about-info {
-    /* background-color: white; */
     padding-top: 100px;
     padding-bottom: 100px;
     padding-left: 45px;
