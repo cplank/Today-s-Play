@@ -10,31 +10,36 @@ let formattedCurrentDate = moment().format("YYYY-MM-DD");
 
 let userCity;
 
+
+//Changing the DOM's current date
 $("#todays-date").text(currentDate); // this changes the DOM's current date
 
 
 
 
-
+////////////////////////////////////////////
 // Call to Rob's TM API js
 // function renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents) {
 //     console.log(startDate);
 //     console.log(city);
 // };
+///////////////////////////////////////////
 
 
-// Call to Carrie's Spotify API js
+
+// Variables for the Spotify redirect URI
 let clientId = "db62643fda74460eb21d4ea74fddb8ce";
 let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2Fcallback";
 
 
+// On callback, retrieving the location and date from local storage
 userCity = localStorage.getItem("location");
 formattedCurrentDate = localStorage.getItem("date");
 
+///////////////////////////////////////////////////////////////////////////
+//TicketMaster API                                                   //////
+///////////////////////////////////////////////////////////////////////////
 
-
-
-// ROBS STUFF
 // TMArtistObject contains information about one performing artist
 
 // Array of Artists 
