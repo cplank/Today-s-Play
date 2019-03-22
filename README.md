@@ -26,3 +26,7 @@ We would like to incorporate:
 - selecting other dates than "today" (i.e. past dates for a playlist of past artists, and future dates for the same reason)
 - being able to have the default playlist action be to remove it after that day, but if the user is comepelled to save it, they can (right now Spotify adds every playlist and doesn't delete it)
 - incorporate a more visual display of the artists/more ingenuine approach to the dynamic parts of the site
+
+
+# AP Contributions
+I took charge of the full HTML structure and CSS styling focusing on the simplicity that the user would go through when using the app ("one" action on their end = simple app = simple design). I also pulled together the "glue" file which is our app.js that calls both the Ticketmaster and Spotify APIs' functions by linking it to the one action the user does--putting in their location. I used moment.js to run the date functionality and storing that data in a variable that Ticketmaster would use (both the date and location data) to pinpoint its database of artists for that day. With collaboration I was able to get the widgets to successfully appear in their section, while also having each portion of the site accurately and elegantly function as it should (ref Functionality above). I proposed the app idea/name to the group and we just ran with it, very successfully completing the MVP and learning a more hands-on approach to the ups and downs programming and teamwork. 
