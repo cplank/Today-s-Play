@@ -344,6 +344,12 @@ function addDayInWidget() {
 
     $('#spotifywidgethole').html(spotyWidgy);
 
+    // magic stuff we dug out of Ticketmasters github - 
+    // causes TM to re-mutate all our event-discovery typed thingys
+    let widgetContainers = document.querySelectorAll("div[w-type='event-discovery']");
+    for (let i = 0; i < widgetContainers.length; ++i) {
+        widgetsLib.widgetsEventDiscovery.push(new widgetsLib.TicketmasterEventDiscoveryWidget(widgetContainers[i]));
+    }
 
 }
 
