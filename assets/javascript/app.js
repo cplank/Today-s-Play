@@ -254,7 +254,8 @@ function userAction() {
 
 
     $("#todays-date").val("");
-    window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=playlist-modify-public%20user-read-private%20user-read-email&response_type=token&state=123`;
+    // the following line undoes anything that just happened, because we leave the page!
+    // window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=playlist-modify-public%20user-read-private%20user-read-email&response_type=token&state=${userCity}`;
 };
 
 
