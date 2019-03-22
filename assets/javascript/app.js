@@ -12,21 +12,6 @@ let currentDate = moment().format('LL'); // grabs current date from m.js in mmmm
 $("#todays-date").text(currentDate); // this changes the DOM's current date
 
 
-
-
-
-// Call to Rob's TM API js
-// function renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents) {
-//     console.log(startDate);
-//     console.log(city);
-// };
-
-
-// Call to Carrie's Spotify API js
-// let clientId = "db62643fda74460eb21d4ea74fddb8ce";
-// let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2F";
-
-
 userCity = localStorage.getItem("location");
 formattedCurrentDate = localStorage.getItem("date");
 
