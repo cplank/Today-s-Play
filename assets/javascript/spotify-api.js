@@ -75,6 +75,9 @@ function getArtistTopTracks(artistName, playlistId) {
         },
     }).then(function (response) {
         let artistObj = response
+        if (artistObj.artists.length < 1) {
+            return;
+        }
         let artistId = artistObj.artists.items[0].id;
 
         let queryUrl = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?country=US`
