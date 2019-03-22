@@ -7,9 +7,26 @@ console.log(addDay);
 
 // GLOBAL VARS
 let currentDate = moment().format('LL'); // grabs current date from m.js in mmmm dd, yyyy format
+let formattedCurrentDate = moment().format("YYYY-MM-DD");
 
-// Getting userCity input in app.js file from local storage
+let userCity;
+
 $("#todays-date").text(currentDate); // this changes the DOM's current date
+
+
+
+
+
+// Call to Rob's TM API js
+// function renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents) {
+//     console.log(startDate);
+//     console.log(city);
+// };
+
+
+// Call to Carrie's Spotify API js
+let clientId = "db62643fda74460eb21d4ea74fddb8ce";
+let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2Fcallback";
 
 
 userCity = localStorage.getItem("location");
@@ -137,6 +154,7 @@ function createEvents(events) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents) {
 
+    TMEvents = [];
     // We are expecting a valid date and city or else stop....TODO: return a valid error code
     if ((!startDate) || (!endDate) || (!city)) {
         alert("Fatal Error - no date  or city passed into renderTMEvents");
@@ -227,9 +245,33 @@ function renderTMEvents(startDate, startTime, endDate, endTime, city, state, pos
 function userAction() {
 
     userCity = $("#user-input").val().trim(); // grab user input for City
+    anotherCity = $("#user-input").val().trim(); // grab user input for City
+    // localStorage.setItem("location", userCity);
+    // localStorage.setItem("date", formattedCurrentDate);
+
+    // userCity = localStorage.getItem("location");
+    // formattedCurrentDate = localStorage.getItem("date");
 
 
-    $("#widgets").removeClass("hidden"); // shows widget section
+
+
+    // $("#widgets").removeClass("hidden"); // shows widget section
+
+    function anotherTMWidget() {
+
+        let nextSpotify = '<div w-type="event-discovery" w-tmapikey="HuptMNvrDLaDMhz8Y5NOpg5s7hvSDucs" w-googleapikey="AIzaSyAt-7vjGZ8A-EuZhf1F_AJCUkGU3Zsky_o" w-keyword="" w-theme="listviewthumbnails" w-colorscheme="dark" w-width="350" w-height="500" w-size="25" w-border="2" w-borderradius="4" w-postalcode="" w-radius="25" w-city=' + anotherCity + ' w-period="custom" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_o1oh7a" w-countrycode="US" w-source="" w-classificationname="music" w-startdatetime=' + addDay + ' w-enddatetime=' + addDay + ' w-latlong=""></div>'
+
+        $('#spotifywidgethole').html(nextSpotify);
+
+        // magic stuff we dug out of Ticketmasters github - 
+        // causes TM to re-mutate all our event-discovery typed thingys
+        let widgetContainers = document.querySelectorAll("div[w-type='event-discovery']");
+        for (let i = 0; i < widgetContainers.length; ++i) {
+            widgetsLib.widgetsEventDiscovery.push(new widgetsLib.TicketmasterEventDiscoveryWidget(widgetContainers[i]));
+        }
+    }
+    anotherTMWidget();
+
     $('html,body').animate({ // animate scroll to widget div
         scrollTop: $("#widgets").offset().top
     }, 'slow');
@@ -244,7 +286,8 @@ function userAction() {
 
 
     $("#todays-date").val("");
-    window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=playlist-modify-public%20user-read-private%20user-read-email&response_type=token&state=123`;
+    // the following line undoes anything that just happened, because we leave the page!
+    // window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=playlist-modify-public%20user-read-private%20user-read-email&response_type=token&state=${userCity}`;
 };
 
 
@@ -330,10 +373,9 @@ function inputTodayDate() {
 }
 function addDayInWidget() {
 
-    let spotyWidgy = '<div w-type="event-discovery" w-tmapikey="HuptMNvrDLaDMhz8Y5NOpg5s7hvSDucs" w-googleapikey="AIzaSyAt-7vjGZ8A-EuZhf1F_AJCUkGU3Zsky_o" w-keyword="" w-theme="listviewthumbnails" w-colorscheme="dark" w-width="350" w-height="500" w-size="25" w-border="2" w-borderradius="4" w-postalcode="" w-radius="25" w-city='+ userCity + ' w-period="custom" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_o1oh7a" w-countrycode="US" w-source="" w-classificationname="music" w-startdatetime=' + addDay + ' w-enddatetime=' + addDay + ' w-latlong=""></div>'
+    let spotyWidgy = '<div w-type="event-discovery" w-tmapikey="HuptMNvrDLaDMhz8Y5NOpg5s7hvSDucs" w-googleapikey="AIzaSyAt-7vjGZ8A-EuZhf1F_AJCUkGU3Zsky_o" w-keyword="" w-theme="listviewthumbnails" w-colorscheme="dark" w-width="350" w-height="500" w-size="25" w-border="2" w-borderradius="4" w-postalcode="" w-radius="25" w-city=' + userCity + ' w-period="custom" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_o1oh7a" w-countrycode="US" w-source="" w-classificationname="music" w-startdatetime=' + addDay + ' w-enddatetime=' + addDay + ' w-latlong=""></div>'
 
     $('#spotifywidgethole').html(spotyWidgy);
-
 
 }
 
