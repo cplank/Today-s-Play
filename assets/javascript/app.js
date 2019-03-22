@@ -5,6 +5,7 @@ var addDay = moment().add(1, "days").format("YYYY-MM-DD");
 console.log(addDay);
 
 
+
 // GLOBAL VARS
 let currentDate = moment().format('LL'); // grabs current date from m.js in mmmm dd, yyyy format
 let formattedCurrentDate = moment().format("YYYY-MM-DD");
@@ -15,16 +16,7 @@ $("#todays-date").text(currentDate); // this changes the DOM's current date
 
 
 
-
-
-// Call to Rob's TM API js
-// function renderTMEvents(startDate, startTime, endDate, endTime, city, state, postalCode, countryCode, radius, maxEvents) {
-//     console.log(startDate);
-//     console.log(city);
-// };
-
-
-// Call to Carrie's Spotify API js
+// Call to Spotify API js
 let clientId = "db62643fda74460eb21d4ea74fddb8ce";
 let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2Fcallback";
 
@@ -34,14 +26,13 @@ formattedCurrentDate = localStorage.getItem("date");
 
 
 
-
-// ROBS STUFF
+// Call to Ticketmaster API
 // TMArtistObject contains information about one performing artist
 
 // Array of Artists 
 var TMEvents = [];
 
-// jQuery(document).ready(function () {
+
 ////////////////////////////////////////////////////////////////////////////////////////////
 // IMPORTANT!!! set "var debug = true" when debugging, else set it to false           //////
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -241,7 +232,7 @@ function renderTMEvents(startDate, startTime, endDate, endTime, city, state, pos
 
 
 
-// function when user submits location
+// DOM function when user submits location
 function userAction() {
 
     userCity = $("#user-input").val().trim(); // grab user input for City
@@ -252,10 +243,6 @@ function userAction() {
     // userCity = localStorage.getItem("location");
     // formattedCurrentDate = localStorage.getItem("date");
 
-
-
-
-    // $("#widgets").removeClass("hidden"); // shows widget section
 
     function anotherTMWidget() {
 
@@ -286,28 +273,26 @@ function userAction() {
 
 
     $("#todays-date").val("");
-    // the following line undoes anything that just happened, because we leave the page!
-    // window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=playlist-modify-public%20user-read-private%20user-read-email&response_type=token&state=${userCity}`;
 };
 
 
 
 // CALLBACK LOADS TO WIDGETS SECTION
 window.onload = function () {
-    $('html,body').animate({ // animate page to scroll to about section
+    $('html,body').animate({ // animate page to scroll to widget section
         scrollTop: $("#widgets").offset().top
     });
 
     // when we hit the page, do this right away, but only if we're on the callback page.
     if (window.location.href.indexOf("callback") > -1) {
-        renderTMEvents(formattedCurrentDate, "", formattedCurrentDate, "", userCity, "", "", "", "", "") //.then(function (data) {
+        renderTMEvents(formattedCurrentDate, "", formattedCurrentDate, "", userCity, "", "", "", "", "")
     }
 };
 
 
 
 
-// when user presses enter key
+// when user PRESSES ENTER KEY
 $("#user-input").keydown(function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
@@ -316,13 +301,13 @@ $("#user-input").keydown(function (event) {
     };
 });
 
-// when user clicks enter button
+// when user CLICKS ENTER button
 $('#enter-button').click(function (event) {
     userAction();
     $("#user-input").val("");
 });
 
-// when user clicks about button
+// when user CLICKS ABOUT button
 $('#about-button').click(function (event) {
     $("#about-container").removeClass("hidden"); // shows about section
     $('html,body').animate({ // animate page to scroll to about section
@@ -366,6 +351,8 @@ $('#back-to-top').click(function (event) {  // when start button is clicked
     }, 'slow');
 });
 
+
+
 //Using javascript to make the ticketmaster widget
 //Adding in user input for city in widget (+ userCity +)
 function inputTodayDate() {
@@ -381,29 +368,3 @@ function addDayInWidget() {
 
 inputTodayDate()
 addDayInWidget()
-
-
-
-
-
-
-
-
-// to populate spotify playlists (for each instance) 
-
-
-// let tmParams = formattedCurrentDate + " " + userCity;
-
-// This also works, doesn't scroll
-// $(document).ready(function(){
-//     window.location.hash = '#widgets';
-// })
-
-
-
-
-
-
-
-
-
