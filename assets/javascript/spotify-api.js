@@ -51,12 +51,12 @@ function makePlaylist(artistNames, city, date) {
                 getArtistTopTracks(artistNames[i], newPlayListId)
             }
 
-           //This is where changeSpotifyWidget was
+           //this function adds the new play list to the spotify widget
+            changeSpotifyWidget(newPlayListId);
         })
 
     })
-     //this function adds the new play list to the spotify widget
-            changeSpotifyWidget(newPlayListId);
+     
 }
 
 //this function takes and array and an id to perform another AJAX call  so we can add tracks
