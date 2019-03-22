@@ -30,18 +30,6 @@ $("#todays-date").text(currentDate); // this changes the DOM's current date
 // };
 ///////////////////////////////////////////
 
-
-
-
-
-
-
-// Variables for the Spotify redirect URI
-
-let clientId = "db62643fda74460eb21d4ea74fddb8ce";
-let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2Fcallback";
-
-
 // Variables for the Spotify redirect URI
 let clientId = "db62643fda74460eb21d4ea74fddb8ce";
 let redirectUri = "https:%2F%2Fcplank.github.io%2FToday-s-Play%2Fcallback";
