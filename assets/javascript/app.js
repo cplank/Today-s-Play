@@ -204,7 +204,7 @@ function renderTMEvents(startDate, startTime, endDate, endTime, city, state, pos
                 // makePlaylist(encodeURIComponent(events[i].artistName))
             }
 
-            makePlaylist(makeArtistNameWorkForSpotify(artistNames));
+            makePlaylist(makeArtistNameWorkForSpotify(artistNames), userCity, todayDate);
         },
         error: function (xhr, status, err) {
             // This time, we do not end up here!
