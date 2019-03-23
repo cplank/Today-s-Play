@@ -4,16 +4,16 @@
 Today's Play is meant to be a simple application for music discovery based off location. The user types in a location (either local or elsewhere) and will be presented with a list of artists playing in that area on that day from Ticketmaster, and a Spotify playlist generated from the information provided from Ticketmaster.
 
 ## Built With ##
-Bootstrap
-JQuery
-JavaScript
-AJAX
+- Bootstrap
+- JQuery
+- JavaScript
+- AJAX
 
 ## Authors ## 
-Carrie Plank - TPM, Spotify API, spotify widget, integration (back-end to front-end)
-Aprille Perez - Product idea, marketing, designer, front-end, integration lead
-Rob Fanfant - TicketMaster API, integration
-Jordan Babbitt - TicketMaster widget and widget integration
+- Carrie Plank - TPM, Spotify API, spotify widget, integration (back-end to front-end)
+- Aprille Perez - Product idea, marketing, designer, front-end, integration lead
+- Rob Fanfant - TicketMaster API, integration
+- Jordan Babbitt - TicketMaster widget and widget integration
 
 ## Sitemap ##
 - Landing section: the starting point and main interaction from the user. A simple form input of location (either local or exploring) is all that's needed from the user. Displays the current date at the time of use (will always be today's date), and provides a link to the about section.
