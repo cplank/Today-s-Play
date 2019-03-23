@@ -8,6 +8,11 @@ Today's Play is meant to be a simple application for music discovery based off l
 - JQuery
 - JavaScript
 - AJAX
+- Ticketmaster widget
+- Ticketmaster API
+- Implicit Grant Auth
+- Spotify widget
+- Spotify API
 
 ## Authors ## 
 - Carrie Plank - TPM, Spotify API, spotify widget, integration (back-end to front-end)
@@ -95,6 +100,9 @@ The code is broken into six main functions:
 * getArtistTopTracks - performs an AJAX call to search Spotify for an artist using artist name. Once the id is captured, peform another AJAX call using the artist id to get the top tracks and save them to a new array.
 * makeArtistNameWorkForSpotify - takes an array and returns an array endcoded as URI
 * changeSpotifyWidget - function that adds the playlist id to the spotify widget so it renders the new playlist.
+
+### What was learned:###
+Spotify's auth scoping was incredibly important. We needed to be able to access a user's playlist, which was a different scope than just grabbing their userid, so the request to the user needed to explictly ask for that consent. 
 
 # Takeaway
 The app is functional in showing accurate information for larger cities (i.e. Seattle/Chicago/Los Angeles) and generating a playlist based off those artists. This was our MVP, and it works smoothly with a nice, straightforward UI. The full experience of the app relies heavily on the user having a Spotify account (free or premium) which could be a soft spot in its accessibility.
