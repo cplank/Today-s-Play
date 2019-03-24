@@ -1,4 +1,5 @@
 # Today's Play
+https://cplank.github.io/Today-s-Play/
 
 ## App Summary ##
 Today's Play is meant to be a simple application for music discovery based off location. The user types in a location (either local or elsewhere) and will be presented with a list of artists playing in that area on that day from Ticketmaster, and a Spotify playlist generated from the information provided from Ticketmaster.
