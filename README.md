@@ -53,7 +53,7 @@ The ticket master widget and API don't have direct crossover, meaning the widget
 ## Ticketmaster API ##
 Ticket Master (TM) allows application developers the ability to interface and discover details of all events the comapany is promoting. Ticket Master views these interfaces as a way of 
 encouraging additional ticket sales from  third party applications. The TM developer interfaces provided come in several flavors- API(s),SDKs as well as Widgets. Ticket Master also 
-provides utilities allowing application developers the abilty to quickly evaluate the most commonly used API(s), without writing one line of code.  The utilities allow quick modification 
+provides utilities allowing application developers the ability to quickly evaluate the most commonly used API(s), without writing one line of code.  The utilities allow quick modification 
 of API input parameters, as well as running the API's to obtain the results of the API(s). Using the TM utilites is were we started our investigation in order to better understand 
 how best to use the API(s) and Widgets.
 
